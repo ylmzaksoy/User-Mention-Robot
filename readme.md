@@ -26,7 +26,7 @@ API_HASH - Sizin API HASH'nız
 
 ### 🚀 Deploy to heroku
 
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/aylak-github/calltonetagger)
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy?template=https://github.com/yk35140003/taglogger)
 
 ### 🎯 Krediler ve Diğer
 
