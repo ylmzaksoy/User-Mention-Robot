@@ -1,0 +1,22 @@
+{
+  "name": "Call Tone Tagger Bot",
+  "logo":"https://telegra.ph/file/7f38e4feabad9e5b92e8f.jpg",
+  "description": " Call Tone Tagger bot size ücretsiz üyelerinizi etiketleyen bir bottur.",
+  "env": {
+    "TOKEN": {
+      "description": "BotFather botundan aldığınız bot tokeninizi girin.",
+      "value": ""
+    },
+    "APP_ID":{
+      "description": "my.telegram.org dan api hash api id alınız.",
+      "value": ""
+    },
+    "API_HASH": {
+      "description": "my.telegram.org dan api hash api id alınız.",
+      "value": ""
+    }
+  },
+  "buildpacks": [{
+    "url": "https://github.com/heroku/heroku-buildpack-python.git"
+  }]
+}
