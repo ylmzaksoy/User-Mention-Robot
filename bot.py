@@ -75,12 +75,12 @@ async def mentionall(event):
     usrtxt = ""
     async for usr in client.iter_participants(event.chat_id):
       usrnum += 1
-      usrtxt += f"[{usr.first_name}](tg://user?id={usr.id}) "
+      usrtxt += f"[{usr.first_name}](tg://user?id={usr.id}, ) "
       if event.chat_id not in anlik_calisan:
         await event.respond("İşlem Başarılı Bir Şekilde Durduruldu ❌")
         return
       if usrnum == 5:
-        await client.send_message(event.chat_id, f"{msg}, \n\n {usrtxt}")
+        await client.send_message(event.chat_id, f"{msg} \n\n {usrtxt}")
         await asyncio.sleep(1.5)
         usrnum = 0
         usrtxt = ""
