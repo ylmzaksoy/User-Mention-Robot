@@ -80,7 +80,7 @@ async def mentionall(event):
         await event.respond("İşlem Başarılı Bir Şekilde Durduruldu ❌")
         return
       if usrnum == 5:
-        await client.send_message(event.chat_id, f"{msg}\n\n {usrtxt}, ")
+        await client.send_message(event.chat_id, f"{msg}, \n\n {usrtxt}")
         await asyncio.sleep(1.5)
         usrnum = 0
         usrtxt = ""
