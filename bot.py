@@ -54,10 +54,7 @@ async def mentionall(event):
   async for admin in client.iter_participants(event.chat_id, filter=ChannelParticipantsAdmins):
     admins.append(admin.id)
     
-  {mention} = [{event.sender_first_name}](tg://user?id={event.sender_id})
-  if not event.sender_id in admins:
-    
-    return await event.respond (f"{mention} **__ yalnızca yöneticiler etiketlemeyi başlatabilir, istersen yöneticilerle görüş :) __**")
+    return await event.respond ("{mention} **__ yalnızca yöneticiler etiketlemeyi başlatabilir, istersen yöneticilerle görüş :) __**")
     
   if event.pattern_match.group(1):
     mode = "text_on_cmd"
