@@ -49,13 +49,13 @@ async def mentionall(event):
   global anlik_calisan
   if event.is_private:
     return await event.respond("__Bu komut gruplarda ve kanallarda kullanılabilir.!__")
-  
+    
   admins = []
   async for admin in client.iter_participants(event.chat_id, filter=ChannelParticipantsAdmins):
     admins.append(admin.id)
-    if not event.sender_id in admins:
-    return await event.respond ("{mention} **__ yalnızca yöneticiler etiketlemeyi başlatabilir, istersen yöneticilerle görüş :) __**")
-    
+  if not event.sender_id in admins:
+    return await event.respond("**__Yalnızca yöneticiler hepsinden bahsedebilir warn text bold__**")
+ 
   if event.pattern_match.group(1):
     mode = "text_on_cmd"
     msg = event.pattern_match.group(1)
