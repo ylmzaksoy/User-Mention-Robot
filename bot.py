@@ -53,8 +53,9 @@ async def mentionall(event):
   admins = []
   async for admin in client.iter_participants(event.chat_id, filter=ChannelParticipantsAdmins):
     admins.append(admin.id)
+        u = await event.client.get_entity(event.chat_id) 
   if not event.sender_id in admins:
-    return await event.respond("**__Yalnızca yöneticiler hepsinden bahsedebilir warn text bold__**")
+    return await event.respond(f"[{get_display_name(u)}](tg://user?id={u.id})**__Yalnızca yöneticiler hepsinden bahsedebilir warn text bold__**")
  
   if event.pattern_match.group(1):
     mode = "text_on_cmd"
