@@ -49,8 +49,7 @@ async def mentionall(event):
   global anlik_calisan
   if event.is_private:
     return await event.respond("__Bu komut gruplarda ve kanallarda kullanılabilir.!__")
-    
-        u = await event.client.get_entity(event.chat_id)
+   
   admins = []
   async for admin in client.iter_participants(event.chat_id, filter=ChannelParticipantsAdmins):
     admins.append(admin.id)
