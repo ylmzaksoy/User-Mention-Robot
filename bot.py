@@ -50,10 +50,10 @@ async def mentionall(event):
   if event.is_private:
     return await event.respond("__Bu komut gruplarda ve kanallarda kullanılabilir.!__")
     
+        u = await event.client.get_entity(event.chat_id)
   admins = []
   async for admin in client.iter_participants(event.chat_id, filter=ChannelParticipantsAdmins):
     admins.append(admin.id)
-        u = await event.client.get_entity(event.chat_id) 
   if not event.sender_id in admins:
     return await event.respond(f"[{get_display_name(u)}](tg://user?id={u.id})**__Yalnızca yöneticiler hepsinden bahsedebilir warn text bold__**")
  
