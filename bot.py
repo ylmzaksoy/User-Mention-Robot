@@ -79,8 +79,8 @@ async def mentionall(event):
       if event.chat_id not in anlik_calisan:
         await event.respond("İşlem Başarılı Bir Şekilde Durduruldu ❌")
         return
-      if usrnum == 8:
-        await client.send_message(event.chat_id, f"{msg}\n\n {usrtxt}")
+      if usrnum == 5:
+        await client.send_message(event.chat_id, f"{msg}\n\n {usrtxt}, ")
         await asyncio.sleep(1.5)
         usrnum = 0
         usrtxt = ""
