@@ -1,7 +1,7 @@
 {
   "name": "Call Tone Tagger Bot",
   "logo":"https://telegra.ph/file/7f38e4feabad9e5b92e8f.jpg",
-  "description": " Call Tone Tagger bot size ücretsiz üyelerinizi etiketleyen bir bottur.",
+  "description": " @UserMentionRobot Size Ğcretsiz Üyelerinizi Etiketleyen Bir Bottur.",
   "env": {
     "TOKEN": {
       "description": "BotFather botundan aldığınız bot tokeninizi girin.",
