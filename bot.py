@@ -25,20 +25,20 @@ async def cancel(event):
 
 @client.on(events.NewMessage(pattern="^/start$"))
 async def start(event):
-  await event.reply("**Call Tone Tagger Bot**, Grup veya kanaldaki neredeyse tüm üyelerden bahsedebilirim ★\nDaha fazla bilgi için **/help**'i tıklayın.",
+  await event.reply("**@UserMentionRobot**, Grup Veya Kanaldaki Neredeyse Tüm Üyelerden Bahsedebilirim ★\nDaha Fazla Bilgi İçin **/help**'i Tıklayın.",
                     buttons=(
-                      [Button.url('🌟 Beni Bir Gruba Ekle', 'https://t.me/calltonebot?startgroup=a'),
-                      Button.url('📣 Geliştirici', 'https://t.me/iaylak')]
+                      [Button.url('➕ Beni Bir Gruba Ekle ➕', 'https://t.me/UserMentionRobot?startgroup=a'),
+                      Button.url('👤 Geliştirici', 'https://t.me/theezelboss')]
                     ),
                     link_preview=False
                    )
 @client.on(events.NewMessage(pattern="^/help$"))
 async def help(event):
-  helptext = "**Call Tone Bot'un Yardım Menüsü**\n\nKomut: /all \n  Bu komutu, başkalarına bahsetmek istediğiniz metinle birlikte kullanabilirsiniz. \n\n`Örnek: /all Günaydın!`  \n\nBu komutu yanıt olarak kullanabilirsiniz. Herhangi bir mesaj yanıtlandığında, yanıtlanan mesaj ile kullanıcıları etiketleyecebilir."
+  helptext = "**@UserMentionRobot Yardım Menüsü**\n\nKomut: /all \n  Bu Komutu, Başkalarına Bahsetmek İstediğiniz Metinle Birlikte Kullanabilirsiniz. \n\n`Örnek: /all Günaydın!`  \n\nBu komutu yanıt olarak kullanabilirsiniz. Herhangi bir mesaj yanıtlandığında, yanıtlanan mesaj ile kullanıcıları etiketleyecebilir."
   await event.reply(helptext,
                     buttons=(
-                      [Button.url('🌟 Beni Bir Gruba Ekle', 'https://t.me/calltonebot?startgroup=a'),
-                      Button.url('📣 Geliştirici', 'https://t.me/iaylak')]
+                      [Button.url('➕ Beni Bir Gruba Ekle ➕', 'https://t.me/UserMentionRobot?startgroup=a'),
+                      Button.url('👤 Geliştirici', 'https://t.me/theezelboss')]
                     ),
                     link_preview=False
                    )
@@ -54,7 +54,7 @@ async def mentionall(event):
   async for admin in client.iter_participants(event.chat_id, filter=ChannelParticipantsAdmins):
     admins.append(admin.id)
   if not event.sender_id in admins:
-    return await event.respond(f"[{get_display_name(u)}](tg://user?id={u.id})**__Yalnızca yöneticiler hepsinden bahsedebilir warn text bold__**")
+    return await event.respond(f"[{get_display_name(u)}](tg://user?id={u.id})**__Yalnızca Yöneticiler Hepsinden Bahsedebilir Warn Text Bold__**")
  
   if event.pattern_match.group(1):
     mode = "text_on_cmd"
@@ -62,7 +62,7 @@ async def mentionall(event):
   elif event.pattern_match.group(1) and event.reply_to_msg_id:
     return await event.respond("**__Bana bir mesaj ver!__**")
   else:
-    return await event.respond("**__Bir mesajı yanıtlayın veya başkalarından bahsetmem için bana bir metin verin!__**")
+    return await event.respond("**__Bir Mesajı Yanıtlayın Veya Başkalarından Bahsetmem İçin Bana Bir Metin Verin!__**")
   
   if mode == "text_on_cmd":
     anlik_calisan.append(event.chat_id)
@@ -80,6 +80,6 @@ async def mentionall(event):
         usrnum = 0
         usrtxt = ""
 
-print(">> Bot çalıyor merak etme 🚀 @iaylak bilgi alabilirsin <<")
+print(">> Bot çalıyor merak etme 🚀 @TheEzelBoss bilgi alabilirsin <<")
 client.run_until_disconnected()
  
