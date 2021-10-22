@@ -12,7 +12,7 @@ LOGGER = logging.getLogger(__name__)
 
 api_id = int(os.environ.get("APP_ID", "3614731"))
 api_hash = os.environ.get("API_HASH", "706629c106cdb9347e61ae877edf63dc")
-bot_token = os.environ.get("TOKEN", "2051706992:AAGbc_P2DzgLKZ80kMbeI6LBqql777zpAsQ")
+bot_token = os.environ.get("TOKEN", "2073729187:AAHFpGWvAhtoekItbT6CnKTQTjhXRwppxW4")
 client = TelegramClient('client', api_id, api_hash).start(bot_token=bot_token)
 
 anlik_calisan = []
@@ -25,30 +25,30 @@ async def cancel(event):
 
 @client.on(events.NewMessage(pattern="^/start$"))
 async def start(event):
-  await event.reply("**@UserMentionRobot**, Grup Veya Kanaldaki Neredeyse Tüm Üyelerden Bahsedebilirim ★\nDaha Fazla Bilgi İçin **/help**'i Tıklayın.",
+  await event.reply("Merhaba! Grubunuzdaki Kullanıcıları Etiketlemek İçin Yaratıldım. Beni Grubunuza Ekleyin Ve Gerisini Bana Bırakın. \nDaha Fazla Bilgi İçin /help'i Kullanınız.",
                     buttons=(
-                      [Button.url('➕ Beni Bir Gruba Ekle ➕', 'https://t.me/UserMentionRobot?startgroup=a'),
-                      Button.url('👤 Geliştirici', 'https://t.me/theezelboss')]
+                      [Button.url('➕ Beni Bir Gruba Ekle ➕', 'https://t.me/usertaggerrobot?startgroup=a'),
+                      Button.url('👤 Geliştirici', 'https://t.me/thewanderfull')]
                     ),
                     link_preview=False
                    )
 @client.on(events.NewMessage(pattern="^/help$"))
 async def help(event):
-  helptext = "**@UserMentionRobot Yardım Menüsü**\n\nKomut: /all \n  Bu Komutu, Başkalarına Bahsetmek İstediğiniz Metinle Birlikte Kullanabilirsiniz. \n\n`Örnek: /all Günaydın!`  \n\nBu komutu yanıt olarak kullanabilirsiniz. Herhangi bir mesaj yanıtlandığında, yanıtlanan mesaj ile kullanıcıları etiketleyecebilir."
+  helptext = "@UserTaggerRobot Yardım Menüsü \n\nKomut: /all \n Bu Komutu, Başkalarına Bahsetmek İstediğiniz Metinle Birlikte Kullanabilirsiniz. \n\n`Örnek: /utag Günaydın!`  \n\nBu Komutu Yanıt Olarak Kullanabilirsiniz. Herhangi Bir Mesaj Yanıtlandığında, Yanıtlanan Mesaj İle Kullanıcıları Etiketleyecektir."
   await event.reply(helptext,
                     buttons=(
-                      [Button.url('➕ Beni Bir Gruba Ekle ➕', 'https://t.me/UserMentionRobot?startgroup=a'),
-                      Button.url('👤 Geliştirici', 'https://t.me/theezelboss')]
+                      [Button.url('➕ Beni Bir Gruba Ekle ➕', 'https://t.me/UserTaggerRobot?startgroup=a'),
+                      Button.url('👤 Geliştirici', 'https://t.me/thewanderfull')]
                     ),
                     link_preview=False
                    )
 
 
-@client.on(events.NewMessage(pattern="^/all ?(.*)"))
+@client.on(events.NewMessage(pattern="^/utag ?(.*)"))
 async def mentionall(event):
   global anlik_calisan
   if event.is_private:
-    return await event.respond("__Bu komut gruplarda ve kanallarda kullanılabilir.!__")
+    return await event.respond("__Bu Komut Gruplarda Veya Kanallarda Kullanılabilir.!__")
    
   admins = []
   async for admin in client.iter_participants(event.chat_id, filter=ChannelParticipantsAdmins):
@@ -60,7 +60,7 @@ async def mentionall(event):
     mode = "text_on_cmd"
     msg = event.pattern_match.group(1)
   elif event.pattern_match.group(1) and event.reply_to_msg_id:
-    return await event.respond("**__Bana bir mesaj ver!__**")
+    return await event.respond("**__Bana Bir Mesaj Ver!__**")
   else:
     return await event.respond("**__Bir Mesajı Yanıtlayın Veya Başkalarından Bahsetmem İçin Bana Bir Metin Verin!__**")
   
@@ -76,10 +76,10 @@ async def mentionall(event):
         return
       if usrnum == 5:
         await client.send_message(event.chat_id, f"{msg} \n\n {usrtxt}")
-        await asyncio.sleep(1.5)
+        await asyncio.sleep(2.5)
         usrnum = 0
         usrtxt = ""
 
-print(">> Bot çalıyor merak etme 🚀 @TheEzelBoss bilgi alabilirsin <<")
+print(">> Bot çalıyor merak etme 🚀 @TheWanderfull bilgi alabilirsin <<")
 client.run_until_disconnected()
  
