@@ -34,7 +34,7 @@ async def start(event):
                    )
 @client.on(events.NewMessage(pattern="^/help$"))
 async def help(event):
-  helptext = "@UserTaggerRobot Yardım Menüsü \n\nKomut: /all \n Bu Komutu, Başkalarına Bahsetmek İstediğiniz Metinle Birlikte Kullanabilirsiniz. \n\n`Örnek: /utag Günaydın!`  \n\nBu Komutu Yanıt Olarak Kullanabilirsiniz. Herhangi Bir Mesaj Yanıtlandığında, Yanıtlanan Mesaj İle Kullanıcıları Etiketleyecektir."
+  helptext = "@UserTaggerRobot Yardım Menüsü \n\nKomut: /utag \n Bu Komutu, Başkalarına Bahsetmek İstediğiniz Metinle Birlikte Kullanabilirsiniz. \n\n`Örnek: /utag Günaydın!`  \n\nBu Komutu Yanıt Olarak Kullanabilirsiniz. Herhangi Bir Mesaj Yanıtlandığında, Yanıtlanan Mesaj İle Kullanıcıları Etiketleyecektir."
   await event.reply(helptext,
                     buttons=(
                       [Button.url('➕ Beni Bir Gruba Ekle ➕', 'https://t.me/UserTaggerRobot?startgroup=a'),
