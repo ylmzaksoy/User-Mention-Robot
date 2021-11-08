@@ -10,9 +10,9 @@ logging.basicConfig(
 )
 LOGGER = logging.getLogger(__name__)
 
-api_id = int(os.environ.get("APP_ID", "??????"))
-api_hash = os.environ.get("API_HASH", "??????")
-bot_token = os.environ.get("TOKEN", "??????")
+api_id = int(os.environ.get("APP_ID", "3614731"))
+api_hash = os.environ.get("API_HASH", "706629c106cdb9347e61ae877edf63dc")
+bot_token = os.environ.get("TOKEN", "2111210757:AAF9le9USnEjUMkeI6IvU6AHL8t7QYayprk")
 client = TelegramClient('client', api_id, api_hash).start(bot_token=bot_token)
 
 anlik_calisan = []
@@ -76,7 +76,7 @@ async def mentionall(event):
         return
       if usrnum == 5:
         await client.send_message(event.chat_id, f"{msg} \n\n {usrtxt}")
-        await asyncio.sleep(2.5)
+        await asyncio.sleep(5.0)
         usrnum = 0
         usrtxt = ""
 
